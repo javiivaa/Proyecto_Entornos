@@ -1,0 +1,48 @@
+RESUMEN DE CAMBIOS DEL PROYECTO
+===============================
+
+1. Organización y arquitectura
+-----------------------------
+- Reestructuración del proyecto siguiendo el patrón MVC: separación clara entre modelo, vista, controlador, lógica de negocio y persistencia.
+- Eliminación de clases duplicadas y conflictos de nombres (por ejemplo, Producto).
+
+2. Modelo de negocio
+--------------------
+- Adaptación de la clase Pedido para permitir hasta dos productos por pedido, con campos para IDs y cantidades.
+- Añadido constructor vacío y setters/getters para integración con la lógica y la base de datos.
+
+3. Lógica de negocio
+--------------------
+- Refactorización de los menús en el controlador para delegar correctamente en las clases de gestión.
+- Implementación de la comprobación de stock antes de permitir la creación de un pedido.
+- Adaptación del flujo para permitir pedidos con uno o dos productos, validando stock de ambos.
+
+4. Persistencia (base de datos)
+-------------------------------
+- Creación de métodos en ConexionBaseDatos.Conexion para:
+  - Comprobar stock de productos.
+  - Validar existencia de clientes.
+  - Insertar pedidos con uno o dos productos y sus cantidades.
+- Adaptación de la tabla Pedido para incluir campos cantidad1 y cantidad2.
+
+5. Integración y flujo completo
+------------------------------
+- Modificación de GestionPedido para:
+  - Solicitar datos de cliente y productos.
+  - Validar cliente y stock antes de crear el pedido.
+  - Guardar el pedido en la base de datos tras la validación.
+- Eliminación del método main de Main.java y centralización del punto de entrada en Vista.java.
+
+6. Utilidades y pruebas
+-----------------------
+- Ejemplo de test de validación de stock y cliente.
+- Sugerencias para pruebas de integración y consultas.
+
+7. Documentación y apoyo visual
+------------------------------
+- Generación de diagrama de clases PlantUML del modelo de negocio.
+- Sugerencia de estructura de Trello para documentar el avance del proyecto.
+
+---
+
+Este resumen refleja todos los cambios y mejoras aplicados durante el proceso de refactorización y evolución del proyecto.
